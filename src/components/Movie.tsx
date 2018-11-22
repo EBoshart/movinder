@@ -1,30 +1,46 @@
 import * as React from 'react';
-import logo from '../logo.svg';
+import SwipeableViews from 'react-swipeable-views';
+// import history from '../history';
+// import logo from '../logo.svg';
 
-import {Link} from 'react-router-dom';
+import {  RouteComponentProps } from 'react-router-dom';
+import { images } from '../App';
+
+import './movie.css';
 
 
+export class Movie extends React.Component<RouteComponentProps<any>, {}> {
+    public state = {
+        index: 1,
+        movieIndex: 0
+    }
+    public onChangeIndex = (index: number) => {
+        setTimeout(() =>
+            this.setState({ index }, () => {
+                if (index !== 1) {
+                    this.setState({ movieIndex: this.state.movieIndex === images.length - 1 ? 0 : this.state.movieIndex + 1, index: 1 })
+                }
+            }), 400)
+    }
+
+    public render() {
+        const swipe = [
+            <div className='no' key={0}>NO</div>,
 
 
+            <div key={1} className="movie"> <img src={images[this.state.movieIndex]} />  </div>
 
+            , <div className='yes' key={2}> YES</div>];
+        console.log(this.state);
+        return (
+            <div className="App">
 
-export class Movie extends React.Component<{}, {}> {
+                <SwipeableViews axis='x' enableMouseEvents={true} index={this.state.index} onChangeIndex={this.onChangeIndex} hysteresis={0.6} >
+                    {swipe}
+                </SwipeableViews>
 
-   public render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <p className="App-intro">
-          Movinder
-        </p>
-        <div>go to login</div>
-        <Link to='/'>Home</Link>
+            </div>
 
-      </div>
-
-    );
-  }
+        );
+    }
 }

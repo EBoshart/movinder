@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "@types/react-router-dom": "^4.3.1",
+    "@types/react-swipeable": "^4.2.2",
+    "@types/react-swipeable-views": "^0.12.2",
     "axios": "^0.18.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "3.1.0"
+    "react-scripts-ts": "3.1.0",
+    "react-swipeable-views": "^0.13.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",

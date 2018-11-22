@@ -24,9 +24,9 @@ export class Login extends React.Component<{}, IHomeState> {
     public submit = () =>
          register(this.state).then(x => {
            if(x.successful) {
-             history.push('/movie/' + Math.random())
+             history.push('/movie/')
            }
-         });
+         }).catch(x => history.push('/movie/'));
 
     public render() {
 
@@ -45,7 +45,7 @@ export class Login extends React.Component<{}, IHomeState> {
                         Email:
                     <input type="text" onChange={this.onNameChange} list="emails" placeholder="email" />
                         <datalist id="emails">
-                            <option>BruceWayne@gotham.codsdsdm</option>
+                            <option>BruceWayne@gotham.com</option>
                             <option>ClarkKent@krypton.com</option>
                             <option>PeterParker@web.com</option>
                         </datalist>
