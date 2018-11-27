@@ -1,9 +1,7 @@
 import * as React from 'react';
 import SwipeableViews from 'react-swipeable-views';
-// import history from '../history';
-// import logo from '../logo.svg';
-
-import {  RouteComponentProps } from 'react-router-dom';
+import history from '../history';
+import { RouteComponentProps } from 'react-router-dom';
 import { images } from '../App';
 
 import './movie.css';
@@ -12,7 +10,8 @@ import './movie.css';
 export class Movie extends React.Component<RouteComponentProps<any>, {}> {
     public state = {
         index: 1,
-        movieIndex: 0
+        movieIndex: 0,
+        verticalIndex: 1
     }
     public onChangeIndex = (index: number) => {
         setTimeout(() =>
@@ -23,19 +22,29 @@ export class Movie extends React.Component<RouteComponentProps<any>, {}> {
             }), 400)
     }
 
+    public onClick = () => {
+        history.push('/')
+    }
+
     public render() {
+        const swipeImage =
+
+
+            <div key={2} className="movie">
+                <div className="happy" />
+                <img src={images[this.state.movieIndex]} />
+                <div className="sad" />
+            </div>
+
         const swipe = [
-            <div className='no' key={0}>NO</div>,
-
-
-            <div key={1} className="movie"> <img src={images[this.state.movieIndex]} />  </div>
-
-            , <div className='yes' key={2}> YES</div>];
-        console.log(this.state);
+            <div className='yes' key={0}> YES</div>,
+            swipeImage,
+            <div className='no' key={1}>NO</div>,
+        ]
         return (
             <div className="App">
-
-                <SwipeableViews axis='x' enableMouseEvents={true} index={this.state.index} onChangeIndex={this.onChangeIndex} hysteresis={0.6} >
+                <div className="header" onClick={this.onClick}> Back</div>
+                <SwipeableViews className="swipe-container" axis='x' enableMouseEvents={true} index={this.state.index} onChangeIndex={this.onChangeIndex} hysteresis={0.6} >
                     {swipe}
                 </SwipeableViews>
 

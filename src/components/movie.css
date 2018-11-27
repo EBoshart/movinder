@@ -1,5 +1,5 @@
 .movie {
-  height: 100vh;
+  height: 93vh;
   width: 100vw;
   overflow: hidden;
   background: black;
@@ -8,25 +8,76 @@
 }
 .movie img{
   box-sizing: border-box;
-  border: 5px solid red;
+  border: 5px solid black;
   width: 100%;
+}
+
+.sad{
+  height: 25vw;
+  width:25vw;
+  content: "";
+  display: block;
+  position: absolute;
+  background: red;
+  border-radius: 50%;
+  opacity: 0.4;
+  background-image: url("../svg/sadness.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+     background-size: contain;
+  /*margin-left: 75vw;*/
+  /*right: -90vw;*/
+  left: 185vw;
+
+  transition: opacity 0.5s ease;
+}
+.sad:hover {
+  opacity: 1;
+}
+.sad.on{
+  opacity:1;
+}
+
+
+
+.happy{
+  height: 25vw;
+  width:25vw;
+  content: "";
+  display: block;
+  position: absolute;
+  background: green;
+  border-radius: 50%;
+  opacity: 0.4;
+  background-image: url("../svg/happiness.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: opacity 0.5s ease;
+  left: 90vw;
+}
+.happy:hover {
+  opacity: 1;
 }
 
 .yes {
   background-color: green;
   text-align: left;
   font-size: 15px;
-  height: 100vh;
+  height: 93vh;
 }
 
 .no {
   background-color: red;
   text-align: right;
   font-size: 15px;
-  height: 100vh;
+  height: 93vh;
+}
+
+.header {
+  height: 7vh;
 }
 
 .swipe-container {
-  height: 100%;
-  background-color: black;
+  height: 93vh;
 }
